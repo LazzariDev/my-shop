@@ -1,18 +1,14 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
-import { CartPage } from "./pages/cart/CartPage"
-import { ShopPage } from "./pages/shop/ShopPage"
-import { CheckoutPage } from "./pages/checkout/CheckoutPage"
-import { ThanksPage } from "./pages/checkout/ThanksPage"
-import { LoginPage } from "./pages/login/LoginPage"
-import { CMSPage } from "./pages/cms/CMSPage"
-import { CMSProductsPage } from "./pages/cms/products/CMSProductsPage"
-import { CMSOrdersPage } from "./pages/cms/orders/CMSOrdersPage"
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { CMSOrdersPage, CMSPage, CMSProductsPage, CartPage, CheckoutPage, LoginPage, ShopPage, ThanksPage } from "./pages";
+import { NavBar } from "@/shared/index";
 
-function App() {
-    
+
+function App() {    
 
     return (
         <BrowserRouter>
+            < NavBar />
+            <hr />
             <div className="page">
                 <Routes>
                     < Route path="shop" element={< ShopPage />} />
