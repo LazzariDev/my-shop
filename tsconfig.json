@@ -23,6 +23,7 @@
       "@/shared/*": ["./src/shared/*"],
       "@/model/*": ["./src/model/*"],
       "@/services/*": ["./src/services/*"],
+      "@/pocketbase": ["./src/pocketbase.ts"],
     }
   },
   "include": ["src"],
