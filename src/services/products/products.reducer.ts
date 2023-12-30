@@ -49,6 +49,7 @@ export function productsReducer(state: ProductState, action: ProductsActions) {
             return {
                 ...state,
                 products: state.products.map(item => item.id === payload.id ? payload : item),
+                activeItem: null,
                 pending: false,
                 error: null
             };

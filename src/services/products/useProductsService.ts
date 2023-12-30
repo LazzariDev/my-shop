@@ -56,7 +56,12 @@ export function useProductsService() {
 
     return {
         actions: {
-            getProducts
+            getProducts,
+            deleteProduct,
+            addProduct,
+            editProduct,
+            setActiveItem,
+            resetActiveItem
         },
         state
     }

@@ -1,26 +1,42 @@
-import { useProductsService } from "@/services/products";
+import {useEffect} from "react";
+import {ServerError, Spinner} from "@/shared/";
+import {useProductsService} from "@/services/products";
+import {CMSProductsList} from "./components/CMSProductsList";
+import {CMSProductForm} from "./components/CMSProductForm";
 
 
 export function CMSProductsPage() {
     const { actions, state } = useProductsService();
 
-    async function getProductsHandler() {
+    useEffect(() => {
         actions.getProducts();
-    }
+    }, []);
     
     return (
         <div>
             <h1 className="title"> CMS </h1>
-            Pagina Prodotti
 
-            <hr className="my-8" />
+            {state.pending && < Spinner />}
+            {state.error && < ServerError message={state.error} />}
 
-            {state.pending && <div>Loading...</div>}
-            {state.error && <div>{state.error}</div>}
+            < CMSProductForm
+                activeItem={state.activeItem}
+                onClose={actions.resetActiveItem}
+                onAdd={actions.addProduct}
+                onEdit={actions.editProduct}
+            />
 
-            <button onClick={getProductsHandler} className="btn primary">GET</button>
+            < CMSProductsList
+                items={state.products}
+                activeItem={state.activeItem}
+                onEditItem={actions.setActiveItem}
+                onDeleteItem={actions.deleteProduct}
+            />
 
-            <pre>{JSON.stringify(state, null, 4)}</pre>
+            <button className="btn primary" onClick={() => actions.setActiveItem({})}>
+                ADD NEW
+            </button>
+
         </div>
     )
 }
