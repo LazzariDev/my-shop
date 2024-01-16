@@ -1,6 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { CMSOrdersPage, CMSPage, CMSProductsPage, CartPage, CheckoutPage, LoginPage, ShopPage, ThanksPage } from "./pages";
-import { NavBar, PrivateRoute } from "@/shared/index";
+import { NavBar, PrivateRoute } from "@/shared/";
 
 
 function App() {    
